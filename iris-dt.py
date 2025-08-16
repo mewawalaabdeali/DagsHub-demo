@@ -8,9 +8,11 @@ from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt 
 import seaborn as sns 
+import dagshub
 
+dagshub.init(repo_owner='mewawalaabdeali', repo_name='DagsHub-demo', mlflow=True)
 
-mlflow.set_tracking_uri('http://127.0.0.1:5000')
+mlflow.set_tracking_uri('https://dagshub.com/mewawalaabdeali/DagsHub-demo.mlflow')
 
 #load the iris dataset
 iris = load_iris()
@@ -22,7 +24,7 @@ X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_s
 max_depth = 20
 #n_estimators = 75
 
-mlflow.set_experiment("iris_dtc")
+mlflow.set_experiment("iris_dt")
 #apply mlflow to train
 
 with mlflow.start_run():
